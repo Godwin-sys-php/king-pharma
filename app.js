@@ -41,21 +41,20 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + '/dist'));
-// Send all other items to index file
-app.get('*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
 
-// app.use('/web', (express.static(path.join(__dirname, 'build'))));
-// app.get('/application/*', function (req, res) {
-//    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-  
+// API routes
 app.use('/api/users', usersRoutes);
 app.use('/api/clients', clientsRoutes);
 app.use('/api/products', productsRoutes);
 app.use('/api/product-transactions', productTransactionsRoutes);
 app.use('/api/product-category', productsCategoryRoutes);
 app.use('/api/money-transactions', moneyTransactionsRoutes);
-app.use('/api/money-transactions', moneyTransactionsRoutes);
 app.use('/api/money-category', moneyCategoryRoutes);
+
+// Catch-all route for serving the front-end application
+// This should come after all specific API routes
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/dist/index.html');
+});
 
 module.exports = app;
