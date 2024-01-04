@@ -134,6 +134,7 @@ exports.getSituation = async (req, res) => {
       .status(200)
       .json({
         find: true,
+        stock: products,
         expirations: {
           n18m: n18m,
           n12m: n12m,
