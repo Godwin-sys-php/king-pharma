@@ -1,0 +1,25 @@
+Nom,Unit,Conditionnement,Prix
+"Test Diagnostic Rapide, Malaria",1 Test,25,10
+"Test, VIH 1+2, rapide, Determine",1 Test,100,65
+"Test, Syphilis, RPR, 250 tests",1 Test,250,100
+"(HemoCue Hb 301) SOLUTION DE CONTROLE, bas, 1ml fl.",Flacon,2,0
+"(HemoCue Hb 301) SOLUTION DE CONTROLE, normale, 1ml fl.",Flacon,2,0
+"(HemoCue Hb 301) SOLUTION DE CONTROLE, haut, 1ml fl.",Flacon,2,0
+(glucomètre Nova StatStrip) SOL. DE CONTROLE bas 4ml 46947,Flacon,2,0
+(glucomètre Nova StatStrip) SOL.DE CONTROLE normal 4ml 46948,Flacon,1,0
+(glucomètre Nova StatStrip) SOL. DE CONTROLE haut 4ml 46949,Flacon,1,0
+"ACIDE CHLORHYDRIQUE, 37%, 1 l, fl.",Flacon,1,10
+"METHANOL, 1 l, fl.",Flacon,1,22
+"ETHANOL, dénaturé, 95%, 1 l, fl.",Flacon,1,7
+"ACIDE ACETIQUE, glacial, 1 l, fl.",Flacon,1,22
+"GIEMSA, colorant (Merck), solution, 500 ml, fl.",Flacon,1,25
+"LUGOL, solution non diluée, 1 l, bout.",Flacon,1,25
+"COLORATION RAPIDE FROTTIS (RAL 555), 3 x 100 ml, kit",Flacon,1,65
+"Test de groupage sanguin, anti A, monoclonal, 10ml, Unité",Flacon,10,90
+"Test de groupage sanguin, anti AB, monoclonal, 10ml",Flacon,10,90
+"Test de groupage sanguin, anti B, monoclonal, 10ml, Unité",Flacon,10,90
+"Test de groupage sanguin, anti D, monoclonal, 10ml, Unité",Flacon,10,90
+"Test urinaire Glucose/Proteine/Ph/Sang, 100 tests, Unité",1 Test,100,13
+"Test, hepatite B, rapide, Determine, Flacon 100 tests",1 Test,100,40
+"Test, hepatite C, rapide, Determine, Flacon 100 tests",1 Test,100,42
+"(test rapide Determine) TAMPON, 2,5 ml, 7D2243",Flacon,1,15

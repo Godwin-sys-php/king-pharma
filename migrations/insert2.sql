@@ -1,0 +1,10 @@
+INSERT INTO products SET idType = 2, name = "Cromoglycate collyre 2%", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 1.8, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Chloramphenicol collyre 0,5%", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 0.65, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Gentamycin collyre 0,1%", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 0.65, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Néomycine collyre1%", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 1.5, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Maxydrol collyre 3ml", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 3.85, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Chibron cadron collyre 5mg", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 2.55, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Ciprofloxacine collyre 0,3%", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 1.5, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "DEXAMETHASONE 1mg, collyre, 5ml, fl.", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 0.65, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Diclofenac sodique 1mg, collyre, fl", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 1.5, unit = "undefined - 1", timestamp = 1704187969;
+INSERT INTO products SET idType = 2, name = "Tetracycline, 1%, pommade, tube, 5g, Unité", nameOfType =  "Produits à usage ophtalmique", inStock = 0, price = 12, unit = "undefined - 50", timestamp = 1704187969;

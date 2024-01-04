@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
     Users.findOne({ idUser: decodedToken.idUser })
       .then(user => {
-        if (user && user.level <= 3) {
+        if (user && user.level <= 2) {
           req.user = user;
           next();
         } else {

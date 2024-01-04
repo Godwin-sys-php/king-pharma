@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
       if (condition2) {
         Products.customQuery("SELECT * FROM products WHERE name = ? AND idProduct != ?", [req.body.name, req.params.idProduct])
           .then(product => {
-            product ? next() : res.status(400).json({ existName: true });
+            product.length > 0 ? res.status(400).json({ existName: true }) : next();
           })
           .catch(() => {
             res.status(500).json({ error: true, errorMessage: error });
@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
       if (condition) {
         Products.findOne({ name: req.body.name })
           .then(product => {
-            product ? next() : res.status(400).json({ existName: true });
+            product ? res.status(400).json({ existName: true }) : next() ;
           })
           .catch(() => {
             res.status(500).json({ error: true, errorMessage: error });

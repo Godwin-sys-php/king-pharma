@@ -6,6 +6,7 @@ const _ = require('lodash');
 const path = require('path');
 
 const usersRoutes = require('./Routes/Users');
+const clientsRoutes = require('./Routes/Clients');
 const productsRoutes = require('./Routes/Products');
 const productTransactionsRoutes = require('./Routes/ProductTransactions');
 const productsCategoryRoutes = require('./Routes/ProductsCategory');
@@ -50,9 +51,11 @@ app.use(
 // });
   
 app.use('/users', usersRoutes);
+app.use('/clients', clientsRoutes);
 app.use('/products', productsRoutes);
 app.use('/product-transactions', productTransactionsRoutes);
 app.use('/product-category', productsCategoryRoutes);
+app.use('/money-transactions', moneyTransactionsRoutes);
 app.use('/money-transactions', moneyTransactionsRoutes);
 app.use('/money-category', moneyCategoryRoutes);
 

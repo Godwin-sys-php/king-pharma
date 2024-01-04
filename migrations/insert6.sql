@@ -1,0 +1,4 @@
+INSERT INTO products SET idType = 6, name = "Dextrose (Glucose), 5%, 500ml, Perfusion", nameOfType =  "Solutés de perfusions", inStock = 0, price = 22.5, unit = "1 Baxter - 30", timestamp = 1704187969;
+INSERT INTO products SET idType = 6, name = "Ringer lactate (Solution de Hartmann), 500ml, Perfusion", nameOfType =  "Solutés de perfusions", inStock = 0, price = 45, unit = "1 Baxter - 60", timestamp = 1704187969;
+INSERT INTO products SET idType = 6, name = "GLUCOSE, 10%, 500 ml, poche souple, sans PVC", nameOfType =  "Solutés de perfusions", inStock = 0, price = 24, unit = "Flacon - 40", timestamp = 1704187969;
+INSERT INTO products SET idType = 6, name = "Chlorure de sodium, 0.9%, 500ml, Perfusion, Unité", nameOfType =  "Solutés de perfusions", inStock = 0, price = 22.5, unit = "Flacon - 30", timestamp = 1704187969;

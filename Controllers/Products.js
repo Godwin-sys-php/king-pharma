@@ -5,10 +5,12 @@ exports.addOneProduct = (req, res) => {
   const now = moment();
   const toInsert = {
     name: req.body.name,
+    lotId: req.body.lotId,
     price: req.body.price,
     inStock: req.body.inStock,
     unit: req.body.unit,
     timestamp: now.unix(),
+    expirationTimestamp: req.body.expirationTimestamp,
   };
 
   Products.insertOne(toInsert) 
@@ -39,7 +41,7 @@ exports.updateOneProduct = (req, res) => {
 exports.getOneProduct = async (req, res) => {
   try {
     const Product = await Products.findOne({ idProduct: req.params.idProduct });
-    res.status({ find: true, result: Product });
+    res.status(200).json({ find: true, result: Product });
   } catch (error) {
     res.status(500).json({ error: true });
   }
@@ -48,7 +50,7 @@ exports.getOneProduct = async (req, res) => {
 exports.getAllProduct = async (req, res) => {
   try {
     const Product = await Products.findAll();
-    res.status({ find: true, result: Product });
+    res.status(200).json({ find: true, result: Product });
   } catch (error) {
     res.status(500).json({ error: true });
   }

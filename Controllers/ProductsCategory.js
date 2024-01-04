@@ -24,7 +24,7 @@ exports.updateOneCategory = (req, res) => {
     type: req.body.type
   }
 
-  ProductsCategory.update(toChange, { idCategory: req.params.idCategory })
+  ProductsCategory.update(toChange, { idCategory: req.params.idProductsCategory })
     .then(() => {
       res.status(200).json({ update: true });
     })
@@ -35,8 +35,8 @@ exports.updateOneCategory = (req, res) => {
 
 exports.getOneCategory = async (req, res) => {
   try {
-    const Category = await ProductsCategory.findOne({ idCategory: req.params.idCategory });
-    res.status({ find: true, result: Category });
+    const Category = await ProductsCategory.findOne({ idCategory: req.params.idProductsCategory });
+    res.status(200).json({ find: true, result: Category });
   } catch (error) {
     res.status(500).json({ error: true });
   }
@@ -45,7 +45,7 @@ exports.getOneCategory = async (req, res) => {
 exports.getAllCategory = async (req, res) => {
   try {
     const Categories = await ProductsCategory.findAll();
-    res.status({ find: true, result: Categories });
+    res.status(200).json({ find: true, result: Categories });
   } catch (error) {
     res.status(500).json({ error: true });
   }
@@ -53,17 +53,18 @@ exports.getAllCategory = async (req, res) => {
 
 exports.getMostPopularEnterCategory = async (req, res) => {
   try {
-    const mpcEnter = await MoneyTransactions.customQuery('SELECT pt.idCategory, COUNT(pt.idCategory) AS value_occurrence, ct.name AS nameOfCategory FROM productTransactions pt LEFT JOIN productsCategory ct ON pt.idCategory = ct.idCategory WHERE ct.type="enter" GROUP BY mt.idCategory ORDER BY value_occurrence DESC LIMIT 3;');
+    const mpcEnter = await ProductsCategory.customQuery('SELECT pt.idCategory, COUNT(pt.idCategory) AS value_occurrence, ct.name AS nameOfCategory FROM productTransactions pt LEFT JOIN productsCategory ct ON pt.idCategory = ct.idCategory WHERE ct.type="enter" GROUP BY pt.idCategory ORDER BY value_occurrence DESC LIMIT 3;');
 
     res.status(200).json({ find: true, result: mpcEnter });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ error: true, errorMessage: err });
   }
 }
 
 exports.getMostPopularOutletCategory = async (req, res) => {
   try {
-    const mpcEnter = await MoneyTransactions.customQuery('SELECT pt.idCategory, COUNT(pt.idCategory) AS value_occurrence, ct.name AS nameOfCategory FROM productTransactions pt LEFT JOIN productsCategory ct ON pt.idCategory = ct.idCategory WHERE ct.type="outlet" GROUP BY mt.idCategory ORDER BY value_occurrence DESC LIMIT 3;');
+    const mpcEnter = await ProductsCategory.customQuery('SELECT pt.idCategory, COUNT(pt.idCategory) AS value_occurrence, ct.name AS nameOfCategory FROM productTransactions pt LEFT JOIN productsCategory ct ON pt.idCategory = ct.idCategory WHERE ct.type="outlet" GROUP BY pt.idCategory ORDER BY value_occurrence DESC LIMIT 3;');
 
     res.status(200).json({ find: true, result: mpcEnter });
   } catch (err) {
@@ -72,7 +73,7 @@ exports.getMostPopularOutletCategory = async (req, res) => {
 }
 
 exports.deleteOneCategory = (req, res) => {
-  ProductsCategory.delete({ idCategory: req.params.idCategory })
+  ProductsCategory.delete({ idCategory: req.params.idProductsCategory })
     .then(() => {
       res.status(200).json({ delete: true });
     })

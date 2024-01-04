@@ -7,10 +7,9 @@ const moment = require('moment');
 exports.addEnter = async (req, res) => {
   const now = moment();
   if (req.body.moneyTransaction) {
-    const nameOfCategory = await MoneyCategory.findOne({ idCategory: 1 });
 
     const lastAmount = await MoneyCategory.customQuery("SELECT * FROM moneyTransactions ORDER BY idTransaction DESC LIMIT 1", []);
-    if (lastAmount.amountAfter - (Number(req.body.quantity) * Number(req.body.price)) < 0) {
+    if (lastAmount[0].amountAfter - (Number(req.body.quantity) * Number(req.body.price)) < 0) {
       res.status(400).json({ negativeAmount: true });
     } else {
       const toInsertProduct = {
@@ -29,11 +28,11 @@ exports.addEnter = async (req, res) => {
 
 
       const toInsertMoney = {
-        idCategory: 1,
+        idCategory: req.moneyCategory.idCategory,
         idUser: req.user.idUser,
-        nameOfCategory: nameOfCategory.name,
+        nameOfCategory: req.moneyCategory.name,
         nameOfUser: req.user.name,
-        amountAfter: lastAmount.amountAfter - (Number(req.body.quantity) * Number(req.body.price)),
+        amountAfter: lastAmount[0].amountAfter - (Number(req.body.quantity) * Number(req.body.price)),
         enter: 0,
         outlet: Number(req.body.quantity) * Number(req.body.price),
         description: `Achat produit ${req.product.name}`,
@@ -104,17 +103,15 @@ exports.addOutlet = async (req, res) => {
         timestamp: now.unix(),
       };
 
-      const nameOfCategory = await MoneyCategory.findOne({ idCategory: 1 });
-
       const lastAmount = await MoneyCategory.customQuery("SELECT * FROM moneyTransactions ORDER BY idTransaction DESC LIMIT 1", []);
 
       const toInsertMoney = {
-        idCategory: 1,
+        idCategory: req.moneyCategory.idCategory,
         idUser: req.user.idUser,
-        nameOfCategory: nameOfCategory.name,
+        nameOfCategory: req.moneyCategory.name,
         nameOfUser: req.user.name,
-        amountAfter: lastAmount.amountAfter + (Number(req.body.quantity) * Number(req.body.price)),
-        enter: Number(req.body.quantity) * Number(req.body.price),
+        amountAfter: lastAmount[0].amountAfter + (Number(req.body.quantity) * Number(req.product.price)),
+        enter: Number(req.body.quantity) * Number(req.product.price),
         outlet: 0,
         description: `Vente produit ${req.product.name}`,
         timestamp: now.unix(),
@@ -167,7 +164,7 @@ exports.addOutlet = async (req, res) => {
 exports.getTransactions = async (req, res) => {
   try {
     const Transactions = await ProductTransactions.customQuery("SELECT * FROM productTransactions WHERE timestamp >= ? AND timestamp < ?", [req.params.begin, req.params.end]);
-    res.status({ find: true, transactions: Transactions });
+    res.status(200).json({ find: true, transactions: Transactions });
   } catch (error) {
     res.status(500).json({ error: true});
   }
