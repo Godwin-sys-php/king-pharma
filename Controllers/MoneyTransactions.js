@@ -91,15 +91,15 @@ exports.getTransactions = async (req, res) => {
 
 exports.getSituation = async (req, res) => {
   try {
-    const lastAmount = await MoneyTransactions.customQuery(
-      "SELECT * FROM moneyTransactions ORDER BY idTransaction DESC LIMIT 1"
-    );
-    const sumEnter = await MoneyTransactions.customQuery(
-      "SELECT SUM(enter) as enter FROM moneyTransactions"
-    );
-    const sumOutlet = await MoneyTransactions.customQuery(
-      "SELECT SUM(outlet) as outlet FROM moneyTransactions"
-    );
+    // const lastAmount = await MoneyTransactions.customQuery(
+    //   "SELECT * FROM moneyTransactions ORDER BY idTransaction DESC LIMIT 1"
+    // );
+    // const sumEnter = await MoneyTransactions.customQuery(
+    //   "SELECT SUM(enter) as enter FROM moneyTransactions"
+    // );
+    // const sumOutlet = await MoneyTransactions.customQuery(
+    //   "SELECT SUM(outlet) as outlet FROM moneyTransactions"
+    // );
     const products = await Products.findAll();
     const now = moment().unix();
     let n18m = [];
@@ -134,10 +134,6 @@ exports.getSituation = async (req, res) => {
       .status(200)
       .json({
         find: true,
-        moneyInGuichet: lastAmount[0].amountAfter,
-        sumEnter: sumEnter[0].enter,
-        sumOutlet: sumOutlet[0].outlet,
-        stock: products,
         expirations: {
           n18m: n18m,
           n12m: n12m,
