@@ -40,10 +40,9 @@ app.use((req, res, next) => {
   }
 });
 
-app.use(
-  "/Invoices",
-  express.static(path.join(__dirname, "Invoices"))
-);
+app.use(express.static(__dirname + '/dist'));
+// Send all other items to index file
+app.get('*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
 
 // app.use('/web', (express.static(path.join(__dirname, 'build'))));
 // app.get('/application/*', function (req, res) {
