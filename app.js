@@ -49,13 +49,13 @@ app.get('*', (req, res) => res.sendFile(__dirname + '/dist/index.html'));
 //    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
   
-app.use('/users', usersRoutes);
-app.use('/clients', clientsRoutes);
-app.use('/products', productsRoutes);
-app.use('/product-transactions', productTransactionsRoutes);
-app.use('/product-category', productsCategoryRoutes);
-app.use('/money-transactions', moneyTransactionsRoutes);
-app.use('/money-transactions', moneyTransactionsRoutes);
-app.use('/money-category', moneyCategoryRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/clients', clientsRoutes);
+app.use('/api/products', productsRoutes);
+app.use('/api/product-transactions', productTransactionsRoutes);
+app.use('/api/product-category', productsCategoryRoutes);
+app.use('/api/money-transactions', moneyTransactionsRoutes);
+app.use('/api/money-transactions', moneyTransactionsRoutes);
+app.use('/api/money-category', moneyCategoryRoutes);
 
 module.exports = app;
